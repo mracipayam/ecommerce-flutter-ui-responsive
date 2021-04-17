@@ -1,4 +1,4 @@
-import 'package:ecommerceflutterapp/core/base/state/base_state.dart';
+import '../state/base_state.dart';
 import 'package:flutter/material.dart';
 
 class BaseView<T> extends StatefulWidget {

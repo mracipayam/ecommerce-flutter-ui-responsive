@@ -45,6 +45,8 @@ flutter:
   uses-material-design: true
   assets:
     - assets/svg/icons/search.svg
+    - assets/svg/icons/mail.svg
+    - assets/svg/icons/lock.svg
     - assets/images/
 
   fonts:

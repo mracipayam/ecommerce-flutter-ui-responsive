@@ -4,17 +4,16 @@ import 'package:ecommerceflutterapp/core/constants/app/app_constants.dart';
 import 'package:ecommerceflutterapp/core/constants/component/input_constants.dart';
 import 'package:ecommerceflutterapp/core/init/theme/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class BaseInput extends StatefulWidget {
-  final Widget? icon;
+class SearchInput extends StatefulWidget {
   final String? placeholder;
-
-  const BaseInput({Key? key, this.icon, this.placeholder}) : super(key: key);
+  const SearchInput({Key? key, this.placeholder}) : super(key: key);
   @override
-  _BaseInputState createState() => _BaseInputState();
+  _SearchInputState createState() => _SearchInputState();
 }
 
-class _BaseInputState extends BaseState<BaseInput> {
+class _SearchInputState extends BaseState<SearchInput> {
   Widget textField() {
     BorderRadius borderRadius =
         BorderRadius.all(Radius.circular(dynamicWidth(0.03)));
@@ -32,7 +31,13 @@ class _BaseInputState extends BaseState<BaseInput> {
         decoration: InputDecoration(
             hintText: widget.placeholder,
             hintStyle: TextStyle(color: grey),
-            prefixIcon: widget.icon,
+            prefixIcon: Padding(
+              padding: EdgeInsets.all(dynamicWidth(0.03)),
+              child: SvgPicture.asset(
+                ApplicationConstants.SVG_PATH + "search.svg",
+                color: grey,
+              ),
+            ),
             contentPadding: EdgeInsets.symmetric(
                 horizontal: dynamicWidth(0.04), vertical: dynamicHeight(0.02)),
             enabledBorder: OutlineInputBorder(

@@ -1,12 +1,16 @@
-import 'package:ecommerceflutterapp/core/base/state/base_state.dart';
-import 'package:ecommerceflutterapp/core/base/widgets/base_widget.dart';
-import 'package:ecommerceflutterapp/core/components/appbars/appbar_transparent.dart';
-import 'package:ecommerceflutterapp/core/components/textfields/base_input.dart';
-import 'package:ecommerceflutterapp/core/components/textfields/search_input.dart';
-import 'package:ecommerceflutterapp/core/constants/app/app_constants.dart';
-import 'package:ecommerceflutterapp/core/init/theme/colors.dart';
+import 'package:ecommerceflutterapp/core/init/navigation/navigation_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import '../../../../core/base/state/base_state.dart';
+import '../../../../core/base/widgets/base_widget.dart';
+import '../../../../core/components/buttons/button_large.dart';
+import '../../../../core/components/svg/svg_input_icon.dart';
+import '../../../../core/components/textfields/base_input.dart';
+import '../../../../core/components/texts/text_custom.dart';
+import '../../../../core/components/texts/text_small.dart';
+import '../../../../core/constants/app/app_constants.dart';
+import '../../../../core/init/theme/colors.dart';
 
 class LoginView extends StatefulWidget {
   @override
@@ -14,6 +18,14 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends BaseState<LoginView> {
+  bool inputFocus = false;
+
+  void inputFocusChange(bool hasFocus) {
+    setState(() {
+      inputFocus = hasFocus;
+    });
+  }
+
   Widget loginViewContainer(Widget child) {
     return Container(
         height: dynamicHeight(1),
@@ -26,16 +38,6 @@ class _LoginViewState extends BaseState<LoginView> {
         child: child);
   }
 
-  Widget textLogo() {
-    return Text(
-      "Audio",
-      style: TextStyle(
-          color: white,
-          fontWeight: FontWeight.bold,
-          fontSize: dynamicWidth(ApplicationConstants.TEXT_HEADER_L)),
-    );
-  }
-
   Widget annotatedRegion(Widget child) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
@@ -45,12 +47,66 @@ class _LoginViewState extends BaseState<LoginView> {
     );
   }
 
-  Widget textSlogan() {
-    return Text(
-      "It's modular and designed to last",
+  Widget signUpHereText() {
+    return TextSmall(
+      text: "Sign Up here",
       style: TextStyle(
+          fontSize: dynamicWidth(ApplicationConstants.TEXT_HEADER_S),
+          color: primary,
+          decoration: TextDecoration.underline),
+    );
+  }
+
+  Widget haveAccountText() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        TextSmall(
+          text: "Didn’t have any account? ",
           color: white,
-          fontSize: dynamicWidth(ApplicationConstants.TEXT_HEADER_S)),
+        ),
+        signUpHereText()
+      ],
+    );
+  }
+
+  Widget loginForm() {
+    return Column(
+      children: [
+        BaseInput(
+          placeholder: "Email",
+          icon: SvgInputIcon(
+            svgName: "mail.svg",
+          ),
+          focusBool: inputFocus,
+        ),
+        BaseInput(
+          placeholder: "Password",
+          icon: SvgInputIcon(
+            svgName: "lock.svg",
+          ),
+          focusBool: inputFocus,
+        ),
+        SizedBox(
+          height: dynamicHeight(0.03),
+        ),
+        TextSmall(
+          text: "Forgot Password",
+          color: white,
+          weight: FontWeight.w700,
+        ),
+        SizedBox(
+          height: dynamicHeight(0.042),
+        ),
+        ButtonLarge(
+            text: "Sign In",
+            onTap: () =>
+                NavigationService.instance.navigateToPage(path: "/register")),
+        SizedBox(
+          height: dynamicHeight(0.0315),
+        ),
+        haveAccountText()
+      ],
     );
   }
 
@@ -64,12 +120,25 @@ class _LoginViewState extends BaseState<LoginView> {
             loginViewContainer(
               Column(
                 children: [
-                  textLogo(),
-                  textSlogan(),
-                  BaseInput(
-                    placeholder: "asdfsaf",
+                  SizedBox(
+                    height: dynamicHeight(0.14),
                   ),
-                  SearchInput()
+                  TextCustom(
+                    text: "Audio",
+                    color: white,
+                    weight: FontWeight.w700,
+                    size: 0.13,
+                  ),
+                  TextSmall(
+                    text: "It's modular and designed to last",
+                    color: white,
+                  ),
+                  inputFocus
+                      ? Container()
+                      : SizedBox(
+                          height: dynamicHeight(0.28),
+                        ),
+                  loginForm(),
                 ],
               ),
             ),

@@ -1,8 +1,8 @@
-import 'package:ecommerceflutterapp/core/base/state/base_state.dart';
-import 'package:ecommerceflutterapp/core/base/widgets/base_widget.dart';
-import 'package:ecommerceflutterapp/core/constants/app/app_constants.dart';
-import 'package:ecommerceflutterapp/core/constants/component/input_constants.dart';
-import 'package:ecommerceflutterapp/core/init/theme/colors.dart';
+import '../../base/state/base_state.dart';
+import '../../base/widgets/base_widget.dart';
+import '../../constants/app/app_constants.dart';
+import '../../constants/component/input_constants.dart';
+import '../../init/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -15,8 +15,8 @@ class SearchInput extends StatefulWidget {
 
 class _SearchInputState extends BaseState<SearchInput> {
   Widget textField() {
-    BorderRadius borderRadius =
-        BorderRadius.all(Radius.circular(dynamicWidth(0.03)));
+    BorderRadius borderRadius = BorderRadius.all(
+        Radius.circular(dynamicWidth(InputConstants.INPUT_BORDER_RADIUS)));
 
     double borderWidth = dynamicWidth(0.0055);
     return Container(
@@ -27,7 +27,7 @@ class _SearchInputState extends BaseState<SearchInput> {
       child: TextField(
         cursorColor: black,
         style: TextStyle(
-            fontSize: dynamicWidth(ApplicationConstants.TEXT_HEADER_M)),
+            fontSize: dynamicWidth(ApplicationConstants.TEXT_HEADER_S)),
         decoration: InputDecoration(
             hintText: widget.placeholder,
             hintStyle: TextStyle(color: grey),

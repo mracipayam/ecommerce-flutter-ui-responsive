@@ -8,7 +8,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class SearchInput extends StatefulWidget {
   final String? placeholder;
-  const SearchInput({Key? key, this.placeholder}) : super(key: key);
+  final void Function(bool hasFocus) onFocusChange;
+
+  static dynamic _dummyOnFocusChange(bool val) {}
+  const SearchInput(
+      {Key? key, this.placeholder, this.onFocusChange = _dummyOnFocusChange})
+      : super(key: key);
+
   @override
   _SearchInputState createState() => _SearchInputState();
 }
@@ -24,28 +30,34 @@ class _SearchInputState extends BaseState<SearchInput> {
         color: white,
         borderRadius: borderRadius,
       ),
-      child: TextField(
-        cursorColor: black,
-        style: TextStyle(
-            fontSize: dynamicWidth(ApplicationConstants.TEXT_HEADER_S)),
-        decoration: InputDecoration(
-            hintText: widget.placeholder,
-            hintStyle: TextStyle(color: grey),
-            prefixIcon: Padding(
-              padding: EdgeInsets.all(dynamicWidth(0.03)),
-              child: SvgPicture.asset(
-                ApplicationConstants.SVG_PATH + "search.svg",
-                color: grey,
+      child: Focus(
+        onFocusChange: (hasFocus) {
+          widget.onFocusChange(hasFocus);
+        },
+        child: TextField(
+          cursorColor: black,
+          style: TextStyle(
+              fontSize: dynamicWidth(ApplicationConstants.TEXT_HEADER_S)),
+          decoration: InputDecoration(
+              hintText: widget.placeholder,
+              hintStyle: TextStyle(color: grey),
+              prefixIcon: Padding(
+                padding: EdgeInsets.all(dynamicWidth(0.03)),
+                child: SvgPicture.asset(
+                  ApplicationConstants.SVG_PATH + "search.svg",
+                  color: grey,
+                ),
               ),
-            ),
-            contentPadding: EdgeInsets.symmetric(
-                horizontal: dynamicWidth(0.04), vertical: dynamicHeight(0.02)),
-            enabledBorder: OutlineInputBorder(
-                borderRadius: borderRadius,
-                borderSide: BorderSide(color: grey, width: borderWidth)),
-            focusedBorder: OutlineInputBorder(
-                borderRadius: borderRadius,
-                borderSide: BorderSide(color: black, width: borderWidth))),
+              contentPadding: EdgeInsets.symmetric(
+                  horizontal: dynamicWidth(0.04),
+                  vertical: dynamicHeight(0.02)),
+              enabledBorder: OutlineInputBorder(
+                  borderRadius: borderRadius,
+                  borderSide: BorderSide(color: grey, width: borderWidth)),
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: borderRadius,
+                  borderSide: BorderSide(color: black, width: borderWidth))),
+        ),
       ),
     );
   }

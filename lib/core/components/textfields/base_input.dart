@@ -8,9 +8,15 @@ import 'package:flutter/material.dart';
 class BaseInput extends StatefulWidget {
   final Widget? icon;
   final String? placeholder;
-  bool? focusBool;
+  final void Function(bool hasFocus) onFocusChange;
 
-  BaseInput({Key? key, this.icon, this.placeholder, this.focusBool})
+  static dynamic _dummyOnFocusChange(bool val) {}
+
+  BaseInput(
+      {Key? key,
+      this.icon,
+      this.placeholder,
+      this.onFocusChange = _dummyOnFocusChange})
       : super(key: key);
   @override
   _BaseInputState createState() => _BaseInputState();
@@ -29,13 +35,7 @@ class _BaseInputState extends BaseState<BaseInput> {
       ),
       child: Focus(
         onFocusChange: (hasFocus) {
-          if (widget.focusBool != null) {
-            if (hasFocus) {
-              widget.focusBool = hasFocus;
-            } else {
-              widget.focusBool = hasFocus;
-            }
-          }
+          widget.onFocusChange(hasFocus);
         },
         child: TextField(
           cursorColor: black,

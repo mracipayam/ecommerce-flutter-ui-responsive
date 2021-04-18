@@ -1,33 +1,34 @@
+import 'package:ecommerceflutterapp/core/constants/app/app_constants.dart';
+
 import '../../base/state/base_state.dart';
 import '../texts/text_large.dart';
 import '../../constants/component/button_constants.dart';
 import '../../init/theme/colors.dart';
 import 'package:flutter/material.dart';
 
-class ButtonLarge extends StatefulWidget {
-  final String text;
+class ButtonLogo extends StatefulWidget {
+  final String logoName;
   final void Function()? onTap;
   static dynamic onTapDefault() {}
-
-  const ButtonLarge({
+  const ButtonLogo({
     Key? key,
-    required this.text,
+    required this.logoName,
     this.onTap = onTapDefault,
   }) : super(key: key);
   @override
-  _ButtonLargeState createState() => _ButtonLargeState();
+  _ButtonLogoState createState() => _ButtonLogoState();
 }
 
-class _ButtonLargeState extends BaseState<ButtonLarge> {
+class _ButtonLogoState extends BaseState<ButtonLogo> {
   Widget buttonContainer(Widget child) {
     return Container(
       alignment: Alignment.center,
       decoration: BoxDecoration(
-          color: primary,
+          color: white,
           borderRadius: BorderRadius.all(Radius.circular(
               dynamicWidth(ButtonConstants.BUTTON_BORDER_RADIUS)))),
-      width: dynamicWidth(ButtonConstants.LARGE_BUTTON_WIDTH),
-      height: dynamicHeight(ButtonConstants.LARGE_BUTTON_HEIGHT),
+      width: dynamicWidth(ButtonConstants.LOGO_BUTTON_WIDTH),
+      height: dynamicWidth(ButtonConstants.LOGO_BUTTON_HEIGHT),
       child: child,
     );
   }
@@ -39,16 +40,15 @@ class _ButtonLargeState extends BaseState<ButtonLarge> {
     );
   }
 
-  Widget buttonText() {
-    return TextMedium(
-      text: widget.text,
-      weight: FontWeight.bold,
-      color: white,
+  Widget buttonLogo() {
+    return Image.asset(
+      ApplicationConstants.LOGOS_PATH + widget.logoName,
+      width: dynamicWidth(0.048),
     );
   }
 
   Widget button() {
-    return buttonContainer(buttonInkWell(buttonText()));
+    return buttonContainer(buttonInkWell(buttonLogo()));
   }
 
   @override

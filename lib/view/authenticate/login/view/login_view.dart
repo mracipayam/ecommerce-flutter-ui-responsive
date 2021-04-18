@@ -18,11 +18,18 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends BaseState<LoginView> {
-  bool inputFocus = false;
+  bool inputFocusEmail = false;
+  bool inputFocusPassword = false;
 
-  void inputFocusChange(bool hasFocus) {
+  void inputFocusChangeEmail(bool hasFocus) {
     setState(() {
-      inputFocus = hasFocus;
+      inputFocusEmail = hasFocus;
+    });
+  }
+
+  void inputFocusChangePassword(bool hasFocus) {
+    setState(() {
+      inputFocusPassword = hasFocus;
     });
   }
 
@@ -30,6 +37,7 @@ class _LoginViewState extends BaseState<LoginView> {
     return Container(
         height: dynamicHeight(1),
         width: dynamicWidth(1),
+        clipBehavior: Clip.none,
         decoration: BoxDecoration(
             image: DecorationImage(
                 fit: BoxFit.cover,
@@ -48,12 +56,17 @@ class _LoginViewState extends BaseState<LoginView> {
   }
 
   Widget signUpHereText() {
-    return TextSmall(
-      text: "Sign Up here",
-      style: TextStyle(
-          fontSize: dynamicWidth(ApplicationConstants.TEXT_HEADER_S),
-          color: primary,
-          decoration: TextDecoration.underline),
+    return GestureDetector(
+      onTap: () {
+        NavigationService.instance.navigateToPage(path: "/register");
+      },
+      child: TextSmall(
+        text: "Sign Up here",
+        style: TextStyle(
+            fontSize: dynamicWidth(ApplicationConstants.TEXT_HEADER_S),
+            color: primary,
+            decoration: TextDecoration.underline),
+      ),
     );
   }
 
@@ -78,14 +91,14 @@ class _LoginViewState extends BaseState<LoginView> {
           icon: SvgInputIcon(
             svgName: "mail.svg",
           ),
-          focusBool: inputFocus,
+          onFocusChange: (hasFocus) => inputFocusChangeEmail(hasFocus),
         ),
         BaseInput(
           placeholder: "Password",
           icon: SvgInputIcon(
             svgName: "lock.svg",
           ),
-          focusBool: inputFocus,
+          onFocusChange: (hasFocus) => inputFocusChangePassword(hasFocus),
         ),
         SizedBox(
           height: dynamicHeight(0.03),
@@ -114,6 +127,7 @@ class _LoginViewState extends BaseState<LoginView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BaseView(
+        scrollPhysics: ClampingScrollPhysics(),
         safeArea: false,
         onPageBuilder: (context) {
           return annotatedRegion(
@@ -133,7 +147,7 @@ class _LoginViewState extends BaseState<LoginView> {
                     text: "It's modular and designed to last",
                     color: white,
                   ),
-                  inputFocus
+                  inputFocusEmail || inputFocusPassword
                       ? Container()
                       : SizedBox(
                           height: dynamicHeight(0.28),

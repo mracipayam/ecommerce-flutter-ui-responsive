@@ -1,4 +1,4 @@
-import '../texts/text_medium.dart';
+import '../texts/text_large.dart';
 import 'package:flutter/material.dart';
 
 class NotFound extends StatelessWidget {

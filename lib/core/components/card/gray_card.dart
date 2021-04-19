@@ -16,7 +16,7 @@ class _GrayCardState extends BaseState<GrayCard> {
   Widget build(BuildContext context) {
     return Container(
       width: dynamicWidth(1),
-      padding: EdgeInsets.symmetric(vertical: dynamicWidth(0.1)),
+      constraints: BoxConstraints(minHeight: dynamicHeight(0.726)),
       decoration: BoxDecoration(
           color: lightGrey,
           borderRadius: BorderRadius.only(

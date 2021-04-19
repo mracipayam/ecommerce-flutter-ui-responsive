@@ -1,4 +1,5 @@
 import 'package:ecommerceflutterapp/view/authenticate/register/view/register_view.dart';
+import 'package:ecommerceflutterapp/view/home/home/home_view.dart';
 
 import '../../components/notfound/not_found.dart';
 import '../../constants/navigation/navigation_constants.dart';
@@ -18,6 +19,8 @@ class NavigationRoute {
         return normalNavigate(LoginView());
       case NavigationConstants.REGISTER_VIEW:
         return normalNavigate(RegisterView());
+      case NavigationConstants.HOME_VIEW:
+        return normalNavigate(HomeView());
       default:
         return MaterialPageRoute(
           builder: (context) => NotFound(),

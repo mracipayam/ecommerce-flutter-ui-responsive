@@ -1,7 +1,7 @@
 import 'package:ecommerceflutterapp/core/constants/app/app_constants.dart';
 
 import '../../base/state/base_state.dart';
-import '../texts/text_large.dart';
+import '../texts/text_medium.dart';
 import '../../constants/component/button_constants.dart';
 import '../../init/theme/colors.dart';
 import 'package:flutter/material.dart';

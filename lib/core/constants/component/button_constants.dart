@@ -4,4 +4,6 @@ class ButtonConstants {
   static const BUTTON_BORDER_RADIUS = 0.0256;
   static const LOGO_BUTTON_WIDTH = 0.133;
   static const LOGO_BUTTON_HEIGHT = 0.133;
+  static const TEXT_BUTTON_WIDTH = 0.2;
+  static const TEXT_BUTTON_HEIGHT = 0.0263;
 }

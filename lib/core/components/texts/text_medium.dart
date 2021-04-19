@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import '../../base/state/base_state.dart';
 import '../../constants/app/app_constants.dart';
 
-class TextLarge extends StatefulWidget {
+class TextMedium extends StatefulWidget {
   final String text;
   final Color? color;
   final FontWeight? weight;
   final TextStyle? style;
 
-  const TextLarge(
+  const TextMedium(
       {Key? key,
       required this.text,
       this.color,
@@ -18,17 +18,17 @@ class TextLarge extends StatefulWidget {
       this.weight = FontWeight.w400})
       : super(key: key);
   @override
-  _TextLargeState createState() => _TextLargeState();
+  _TextMediumState createState() => _TextMediumState();
 }
 
-class _TextLargeState extends BaseState<TextLarge> {
+class _TextMediumState extends BaseState<TextMedium> {
   @override
   Widget build(BuildContext context) {
     return AutoSizeText(
       widget.text,
       style: widget.style == null
           ? TextStyle(
-              fontSize: dynamicWidth(ApplicationConstants.TEXT_HEADER_L),
+              fontSize: dynamicWidth(ApplicationConstants.TEXT_HEADER_M),
               color: widget.color,
               fontWeight: widget.weight)
           : widget.style,

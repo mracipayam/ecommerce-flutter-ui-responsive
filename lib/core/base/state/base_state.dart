@@ -7,4 +7,10 @@ abstract class BaseState<T extends StatefulWidget> extends State<T> {
       MediaQuery.of(context).size.height * value;
   double dynamicWidth(double value) =>
       MediaQuery.of(context).size.width * value;
+  double dynamicSafeHeight(double value) =>
+      MediaQuery.of(context).size.height -
+      (MediaQuery.of(context).padding.top +
+              MediaQuery.of(context).padding.bottom +
+              50) *
+          value;
 }

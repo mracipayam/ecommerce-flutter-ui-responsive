@@ -1,5 +1,5 @@
 import '../../base/state/base_state.dart';
-import '../texts/text_large.dart';
+import '../texts/text_medium.dart';
 import '../../constants/component/button_constants.dart';
 import '../../init/theme/colors.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +48,7 @@ class _ButtonLargeState extends BaseState<ButtonLarge> {
   }
 
   Widget button() {
-    return buttonContainer(buttonInkWell(buttonText()));
+    return buttonInkWell(buttonContainer(buttonText()));
   }
 
   @override

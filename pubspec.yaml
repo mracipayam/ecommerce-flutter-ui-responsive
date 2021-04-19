@@ -47,7 +47,10 @@ flutter:
     - assets/svg/icons/search.svg
     - assets/svg/icons/mail.svg
     - assets/svg/icons/lock.svg
+    - assets/svg/icons/menu-variant.svg
     - assets/images/
+    - assets/logos/
+    - assets/avatars/
 
   fonts:
     - family: DMSans

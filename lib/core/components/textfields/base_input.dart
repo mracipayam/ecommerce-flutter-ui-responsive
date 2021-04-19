@@ -9,6 +9,7 @@ class BaseInput extends StatefulWidget {
   final Widget? icon;
   final String? placeholder;
   final void Function(bool hasFocus) onFocusChange;
+  final bool secureText;
 
   static dynamic _dummyOnFocusChange(bool val) {}
 
@@ -16,7 +17,8 @@ class BaseInput extends StatefulWidget {
       {Key? key,
       this.icon,
       this.placeholder,
-      this.onFocusChange = _dummyOnFocusChange})
+      this.onFocusChange = _dummyOnFocusChange,
+      this.secureText = false})
       : super(key: key);
   @override
   _BaseInputState createState() => _BaseInputState();
@@ -39,6 +41,7 @@ class _BaseInputState extends BaseState<BaseInput> {
         },
         child: TextField(
           cursorColor: black,
+          obscureText: widget.secureText,
           style: TextStyle(
               fontSize: dynamicWidth(ApplicationConstants.TEXT_HEADER_S)),
           decoration: InputDecoration(

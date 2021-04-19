@@ -118,6 +118,7 @@ class _RegisterViewState extends BaseState<RegisterView> {
         ),
         BaseInput(
           placeholder: "Password",
+          secureText: true,
           icon: SvgInputIcon(
             svgName: "lock.svg",
           ),
@@ -129,7 +130,7 @@ class _RegisterViewState extends BaseState<RegisterView> {
         ButtonLarge(
             text: "Sign Up",
             onTap: () =>
-                NavigationService.instance.navigateToPage(path: "/register")),
+                NavigationService.instance.navigateToPage(path: "/home")),
         SizedBox(
           height: dynamicHeight(0.055),
         ),
@@ -145,6 +146,7 @@ class _RegisterViewState extends BaseState<RegisterView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       body: BaseView(
         scrollPhysics: ClampingScrollPhysics(),
         safeArea: false,

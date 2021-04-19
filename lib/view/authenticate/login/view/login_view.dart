@@ -95,6 +95,7 @@ class _LoginViewState extends BaseState<LoginView> {
         ),
         BaseInput(
           placeholder: "Password",
+          secureText: true,
           icon: SvgInputIcon(
             svgName: "lock.svg",
           ),
@@ -114,7 +115,7 @@ class _LoginViewState extends BaseState<LoginView> {
         ButtonLarge(
             text: "Sign In",
             onTap: () =>
-                NavigationService.instance.navigateToPage(path: "/register")),
+                NavigationService.instance.navigateToPage(path: "/home")),
         SizedBox(
           height: dynamicHeight(0.0315),
         ),
@@ -126,6 +127,7 @@ class _LoginViewState extends BaseState<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       body: BaseView(
         scrollPhysics: ClampingScrollPhysics(),
         safeArea: false,

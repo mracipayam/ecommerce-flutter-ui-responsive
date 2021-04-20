@@ -1,4 +1,5 @@
 import 'package:ecommerceflutterapp/view/authenticate/register/view/register_view.dart';
+import 'package:ecommerceflutterapp/view/home/explore_products/view/explore_products.dart';
 import 'package:ecommerceflutterapp/view/home/home/home_view.dart';
 import 'package:ecommerceflutterapp/view/home/search/view/search_view.dart';
 
@@ -24,6 +25,8 @@ class NavigationRoute {
         return normalNavigate(HomeView());
       case NavigationConstants.SEARCH_VIEW:
         return normalNavigate(SearchView());
+      case NavigationConstants.EXPLORE_PRODUCTS_VIEW:
+        return normalNavigate(ExploreProductsView());
       default:
         return MaterialPageRoute(
           builder: (context) => NotFound(),

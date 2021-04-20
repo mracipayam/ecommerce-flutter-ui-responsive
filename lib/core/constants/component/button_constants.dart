@@ -6,4 +6,8 @@ class ButtonConstants {
   static const LOGO_BUTTON_HEIGHT = 0.133;
   static const TEXT_BUTTON_WIDTH = 0.2;
   static const TEXT_BUTTON_HEIGHT = 0.0263;
+  static const FILTER_BUTTON_WIDTH = 0.235;
+  static const FILTER_BUTTON_HEIGHT = 0.0531;
+  static const CHIPS_SMALL_BUTTON_WIDTH = 0.248;
+  static const CHIPS_SMALL_BUTTON_HEIGHT = 0.141;
 }

@@ -49,6 +49,13 @@ flutter:
     - assets/svg/icons/lock.svg
     - assets/svg/icons/menu-variant.svg
     - assets/svg/icons/arrow-right.svg
+    - assets/svg/icons/chevron-left.svg
+    - assets/svg/icons/shopping-cart.svg
+    - assets/svg/icons/clock.svg
+    - assets/svg/icons/x.svg
+    - assets/svg/icons/star.svg
+    - assets/svg/icons/star-filled.svg
+    - assets/svg/icons/more-vertical.svg
     - assets/images/
     - assets/logos/
     - assets/avatars/

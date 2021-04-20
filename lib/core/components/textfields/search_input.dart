@@ -8,11 +8,18 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class SearchInput extends StatefulWidget {
   final String? placeholder;
+  final bool? enabled;
   final void Function(bool hasFocus) onFocusChange;
+  final void Function() onTap;
 
   static dynamic _dummyOnFocusChange(bool val) {}
+  static dynamic _dummyOnTap() {}
   const SearchInput(
-      {Key? key, this.placeholder, this.onFocusChange = _dummyOnFocusChange})
+      {Key? key,
+      this.placeholder,
+      this.onFocusChange = _dummyOnFocusChange,
+      this.enabled = true,
+      this.onTap = _dummyOnTap})
       : super(key: key);
 
   @override
@@ -36,6 +43,8 @@ class _SearchInputState extends BaseState<SearchInput> {
         },
         child: TextField(
           cursorColor: black,
+          onTap: widget.onTap,
+          enabled: widget.enabled,
           style: TextStyle(
               fontSize: dynamicWidth(ApplicationConstants.TEXT_HEADER_S)),
           decoration: InputDecoration(

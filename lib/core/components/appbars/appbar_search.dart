@@ -1,12 +1,11 @@
-import 'package:ecommerceflutterapp/core/components/texts/text_medium.dart';
-import 'package:ecommerceflutterapp/core/constants/app/app_constants.dart';
-import 'package:ecommerceflutterapp/core/init/navigation/navigation_service.dart';
-import 'package:ecommerceflutterapp/core/init/theme/colors.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../base/state/base_state.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import '../../constants/app/app_constants.dart';
+import '../../init/theme/colors.dart';
+import '../texts/text_medium.dart';
 
 class AppBarSearch extends StatefulWidget implements PreferredSizeWidget {
   Size get preferredSize => Size.fromHeight(50);

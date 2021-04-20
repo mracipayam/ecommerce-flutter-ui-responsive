@@ -1,17 +1,16 @@
-import 'package:ecommerceflutterapp/core/base/state/base_state.dart';
-import 'package:ecommerceflutterapp/core/base/widgets/base_widget.dart';
-import 'package:ecommerceflutterapp/core/components/appbars/appbar_search.dart';
-import 'package:ecommerceflutterapp/core/components/rating/star_rating.dart';
-import 'package:ecommerceflutterapp/core/components/rating/star_rating_filled.dart';
-import 'package:ecommerceflutterapp/core/components/textfields/search_input.dart';
-import 'package:ecommerceflutterapp/core/components/texts/text_large.dart';
-import 'package:ecommerceflutterapp/core/components/texts/text_medium.dart';
-import 'package:ecommerceflutterapp/core/components/texts/text_small.dart';
-import 'package:ecommerceflutterapp/core/constants/app/app_constants.dart';
-import 'package:ecommerceflutterapp/core/constants/component/input_constants.dart';
-import 'package:ecommerceflutterapp/core/init/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../../../core/base/state/base_state.dart';
+import '../../../../core/base/widgets/base_widget.dart';
+import '../../../../core/components/appbars/appbar_search.dart';
+import '../../../../core/components/rating/star_rating_filled.dart';
+import '../../../../core/components/textfields/search_input.dart';
+import '../../../../core/components/texts/text_medium.dart';
+import '../../../../core/components/texts/text_small.dart';
+import '../../../../core/constants/app/app_constants.dart';
+import '../../../../core/constants/component/input_constants.dart';
+import '../../../../core/init/theme/colors.dart';
 
 class SearchView extends StatefulWidget {
   @override

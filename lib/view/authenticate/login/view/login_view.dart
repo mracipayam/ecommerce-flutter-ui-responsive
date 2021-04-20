@@ -1,6 +1,4 @@
-import 'package:ecommerceflutterapp/core/init/navigation/navigation_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 
 import '../../../../core/base/state/base_state.dart';
@@ -11,6 +9,7 @@ import '../../../../core/components/textfields/base_input.dart';
 import '../../../../core/components/texts/text_custom.dart';
 import '../../../../core/components/texts/text_small.dart';
 import '../../../../core/constants/app/app_constants.dart';
+import '../../../../core/init/navigation/navigation_service.dart';
 import '../../../../core/init/theme/colors.dart';
 
 class LoginView extends StatefulWidget {

@@ -1,7 +1,7 @@
-import 'package:ecommerceflutterapp/core/base/state/base_state.dart';
-import 'package:ecommerceflutterapp/core/components/texts/text_medium.dart';
-import 'package:ecommerceflutterapp/core/constants/component/button_constants.dart';
-import 'package:ecommerceflutterapp/core/init/theme/colors.dart';
+import '../../base/state/base_state.dart';
+import '../texts/text_medium.dart';
+import '../../constants/component/button_constants.dart';
+import '../../init/theme/colors.dart';
 import 'package:flutter/material.dart';
 
 class ChipsSmallButton extends StatefulWidget {

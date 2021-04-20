@@ -1,24 +1,24 @@
-import 'package:ecommerceflutterapp/core/base/state/base_state.dart';
-import 'package:ecommerceflutterapp/core/base/widgets/base_widget.dart';
-import 'package:ecommerceflutterapp/core/components/appbars/appbar_back_cart.dart';
-import 'package:ecommerceflutterapp/core/components/buttons/button_filter.dart';
-import 'package:ecommerceflutterapp/core/components/buttons/button_large.dart';
-import 'package:ecommerceflutterapp/core/components/buttons/chips_button_small.dart';
-import 'package:ecommerceflutterapp/core/components/card/card_small.dart';
-import 'package:ecommerceflutterapp/core/components/card/gray_card.dart';
-import 'package:ecommerceflutterapp/core/components/focus/refresh_focus.dart';
-import 'package:ecommerceflutterapp/core/components/lists/products_horizontal_list.dart';
-import 'package:ecommerceflutterapp/core/components/rating/star_rating_filled.dart';
-import 'package:ecommerceflutterapp/core/components/textfields/double_input.dart';
-import 'package:ecommerceflutterapp/core/components/texts/text_large.dart';
-import 'package:ecommerceflutterapp/core/components/texts/text_medium.dart';
-import 'package:ecommerceflutterapp/core/components/texts/text_small.dart';
-import 'package:ecommerceflutterapp/core/components/texts/text_x_small.dart';
-import 'package:ecommerceflutterapp/core/constants/app/app_constants.dart';
-import 'package:ecommerceflutterapp/core/constants/component/button_constants.dart';
-import 'package:ecommerceflutterapp/core/init/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../../../core/base/state/base_state.dart';
+import '../../../../core/base/widgets/base_widget.dart';
+import '../../../../core/components/appbars/appbar_back_cart.dart';
+import '../../../../core/components/buttons/button_filter.dart';
+import '../../../../core/components/buttons/button_large.dart';
+import '../../../../core/components/buttons/chips_button_small.dart';
+import '../../../../core/components/card/card_small.dart';
+import '../../../../core/components/card/gray_card.dart';
+import '../../../../core/components/lists/products_horizontal_list.dart';
+import '../../../../core/components/rating/star_rating_filled.dart';
+import '../../../../core/components/textfields/double_input.dart';
+import '../../../../core/components/texts/text_large.dart';
+import '../../../../core/components/texts/text_medium.dart';
+import '../../../../core/components/texts/text_small.dart';
+import '../../../../core/components/texts/text_x_small.dart';
+import '../../../../core/constants/app/app_constants.dart';
+import '../../../../core/constants/component/button_constants.dart';
+import '../../../../core/init/theme/colors.dart';
 
 class ExploreProductsView extends StatefulWidget {
   @override

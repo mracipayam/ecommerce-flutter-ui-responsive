@@ -1,7 +1,7 @@
-import 'package:ecommerceflutterapp/view/authenticate/register/view/register_view.dart';
-import 'package:ecommerceflutterapp/view/home/explore_products/view/explore_products.dart';
-import 'package:ecommerceflutterapp/view/home/home/home_view.dart';
-import 'package:ecommerceflutterapp/view/home/search/view/search_view.dart';
+import '../../../view/authenticate/register/view/register_view.dart';
+import '../../../view/home/explore_products/view/explore_products.dart';
+import '../../../view/home/home/home_view.dart';
+import '../../../view/home/search/view/search_view.dart';
 
 import '../../components/notfound/not_found.dart';
 import '../../constants/navigation/navigation_constants.dart';

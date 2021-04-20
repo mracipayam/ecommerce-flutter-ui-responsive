@@ -1,4 +1,4 @@
-import 'package:ecommerceflutterapp/core/constants/app/app_constants.dart';
+import '../../constants/app/app_constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../base/state/base_state.dart';

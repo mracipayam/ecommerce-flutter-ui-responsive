@@ -1,25 +1,23 @@
-import 'package:ecommerceflutterapp/core/base/state/base_state.dart';
-import 'package:ecommerceflutterapp/core/base/widgets/base_widget.dart';
-import 'package:ecommerceflutterapp/core/components/appbars/appbar_transparent.dart';
-import 'package:ecommerceflutterapp/core/components/buttons/button_text.dart';
-import 'package:ecommerceflutterapp/core/components/card/card_fit_large.dart';
-import 'package:ecommerceflutterapp/core/components/card/card_large.dart';
-import 'package:ecommerceflutterapp/core/components/card/gray_card.dart';
-import 'package:ecommerceflutterapp/core/components/lists/products_horizontal_list.dart';
-import 'package:ecommerceflutterapp/core/components/svg/svg_input_icon.dart';
-import 'package:ecommerceflutterapp/core/components/textfields/base_input.dart';
-import 'package:ecommerceflutterapp/core/components/textfields/search_input.dart';
-import 'package:ecommerceflutterapp/core/components/texts/text_large.dart';
-import 'package:ecommerceflutterapp/core/components/texts/text_medium.dart';
-import 'package:ecommerceflutterapp/core/components/texts/text_s_large.dart';
-import 'package:ecommerceflutterapp/core/components/texts/text_small.dart';
-import 'package:ecommerceflutterapp/core/constants/app/app_constants.dart';
-import 'package:ecommerceflutterapp/core/constants/component/card_constants.dart';
-import 'package:ecommerceflutterapp/core/init/navigation/navigation_service.dart';
-import 'package:ecommerceflutterapp/core/init/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
+
+import '../../../core/base/state/base_state.dart';
+import '../../../core/base/widgets/base_widget.dart';
+import '../../../core/components/appbars/appbar_transparent.dart';
+import '../../../core/components/buttons/button_text.dart';
+import '../../../core/components/card/card_fit_large.dart';
+import '../../../core/components/card/card_large.dart';
+import '../../../core/components/card/gray_card.dart';
+import '../../../core/components/lists/products_horizontal_list.dart';
+import '../../../core/components/textfields/search_input.dart';
+import '../../../core/components/texts/text_large.dart';
+import '../../../core/components/texts/text_medium.dart';
+import '../../../core/components/texts/text_s_large.dart';
+import '../../../core/components/texts/text_small.dart';
+import '../../../core/constants/app/app_constants.dart';
+import '../../../core/constants/component/card_constants.dart';
+import '../../../core/init/navigation/navigation_service.dart';
+import '../../../core/init/theme/colors.dart';
 
 class HomeView extends StatefulWidget {
   @override

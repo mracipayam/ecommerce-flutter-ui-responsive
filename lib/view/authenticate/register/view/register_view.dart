@@ -1,5 +1,5 @@
-import 'package:ecommerceflutterapp/core/components/buttons/button_logo.dart';
-import 'package:ecommerceflutterapp/core/init/navigation/navigation_service.dart';
+import '../../../../core/components/buttons/button_logo.dart';
+import '../../../../core/init/navigation/navigation_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

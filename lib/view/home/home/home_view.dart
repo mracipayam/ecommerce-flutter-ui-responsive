@@ -5,6 +5,7 @@ import 'package:ecommerceflutterapp/core/components/buttons/button_text.dart';
 import 'package:ecommerceflutterapp/core/components/card/card_fit_large.dart';
 import 'package:ecommerceflutterapp/core/components/card/card_large.dart';
 import 'package:ecommerceflutterapp/core/components/card/gray_card.dart';
+import 'package:ecommerceflutterapp/core/components/lists/products_horizontal_list.dart';
 import 'package:ecommerceflutterapp/core/components/svg/svg_input_icon.dart';
 import 'package:ecommerceflutterapp/core/components/textfields/base_input.dart';
 import 'package:ecommerceflutterapp/core/components/textfields/search_input.dart';
@@ -29,71 +30,9 @@ class _HomeViewState extends BaseState<HomeView> {
   bool inputFocusEmail = false;
   int productsListSelectedIndex = 0;
   int _productLargeCardHorizontalSnapListIndex = 0;
-  int _productFitCardHorizontalSnapListIndex = 0;
 
-  void inputFocusChangeEmail(bool hasFocus) {
-    setState(() {
-      inputFocusEmail = hasFocus;
-    });
-  }
-
-  Widget productHorizontalListItem(String text, int index, bool select) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          productsListSelectedIndex = index;
-        });
-      },
-      child: Container(
-        decoration: select
-            ? BoxDecoration(
-                color: primary,
-                borderRadius:
-                    BorderRadius.all(Radius.circular(dynamicWidth(0.0769))))
-            : BoxDecoration(),
-        alignment: Alignment.center,
-        width: dynamicWidth(0.274),
-        child: TextMedium(
-          text: text,
-          color: select ? white : greyDark,
-        ),
-      ),
-    );
-  }
-
-  bool productsSelected(int index) {
-    return productsListSelectedIndex == index ? true : false;
-  }
-
-  Widget productHorizontalList() {
-    return Container(
-      width: dynamicWidth(1),
-      height: dynamicWidth(0.1),
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: [
-          SizedBox(
-            width: dynamicWidth(0.0615),
-          ),
-          productHorizontalListItem("Headphone", 0, productsSelected(0)),
-          SizedBox(
-            width: dynamicWidth(0.0282),
-          ),
-          productHorizontalListItem("Headband", 1, productsSelected(1)),
-          SizedBox(
-            width: dynamicWidth(0.0282),
-          ),
-          productHorizontalListItem("Earpads", 2, productsSelected(2)),
-          SizedBox(
-            width: dynamicWidth(0.0282),
-          ),
-          productHorizontalListItem("Cable", 3, productsSelected(3)),
-          SizedBox(
-            width: dynamicWidth(0.0615),
-          ),
-        ],
-      ),
-    );
+  void routeAtExploreProductsView() {
+    NavigationService.instance.navigateToPage(path: "/explore-products");
   }
 
   Widget headerText() {
@@ -157,21 +96,24 @@ class _HomeViewState extends BaseState<HomeView> {
   }
 
   Widget productLargeCard() {
-    return CardLarge(
-        child: Row(
-      children: [
-        Column(
-          children: [
-            productLargeCardHeaderText(),
-            productLargeCardBottomText()
-          ],
-        ),
-        SizedBox(
-          width: dynamicWidth(0.07),
-        ),
-        productLargeCardImage()
-      ],
-    ));
+    return InkWell(
+      onTap: routeAtExploreProductsView,
+      child: CardLarge(
+          child: Row(
+        children: [
+          Column(
+            children: [
+              productLargeCardHeaderText(),
+              productLargeCardBottomText()
+            ],
+          ),
+          SizedBox(
+            width: dynamicWidth(0.07),
+          ),
+          productLargeCardImage()
+        ],
+      )),
+    );
   }
 
   Widget productLargeCardHorizontalSnapList() {
@@ -179,6 +121,7 @@ class _HomeViewState extends BaseState<HomeView> {
       height: dynamicWidth(CardConstants.LARGE_CARD_HEIGHT),
       child: PageView.builder(
         itemCount: 10,
+        physics: BouncingScrollPhysics(),
         controller: PageController(
             viewportFraction: CardConstants.LARGE_CARD_WIDTH - 0.06),
         onPageChanged: (int index) =>
@@ -202,9 +145,12 @@ class _HomeViewState extends BaseState<HomeView> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           TextMedium(text: "Featured Products"),
-          TextSmall(
-            text: "See all",
-            color: greyDark,
+          InkWell(
+            onTap: routeAtExploreProductsView,
+            child: TextSmall(
+              text: "See all",
+              color: greyDark,
+            ),
           )
         ],
       ),
@@ -285,11 +231,10 @@ class _HomeViewState extends BaseState<HomeView> {
       height: dynamicWidth(CardConstants.LARGE_CARD_FIT_HEIGHT),
       child: PageView.builder(
         itemCount: 10,
+        physics: BouncingScrollPhysics(),
         controller: PageController(
             viewportFraction:
                 CardConstants.LARGE_CARD_FIT_WIDTH * 2 + (0.0384 * 3)),
-        onPageChanged: (int index) =>
-            setState(() => _productFitCardHorizontalSnapListIndex = index),
         itemBuilder: (_, i) {
           return Transform.scale(
               scale: 1,
@@ -318,7 +263,7 @@ class _HomeViewState extends BaseState<HomeView> {
           SizedBox(
             height: dynamicHeight(0.042),
           ),
-          productHorizontalList(),
+          ProductsHorizontalList(),
           SizedBox(
             height: dynamicHeight(0.0263),
           ),

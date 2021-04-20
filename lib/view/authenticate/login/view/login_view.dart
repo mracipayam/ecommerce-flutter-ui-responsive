@@ -1,5 +1,6 @@
 import 'package:ecommerceflutterapp/core/init/navigation/navigation_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 
 import '../../../../core/base/state/base_state.dart';
@@ -20,17 +21,43 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends BaseState<LoginView> {
   bool inputFocusEmail = false;
   bool inputFocusPassword = false;
+  double sizedBoxHeight = 50;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(
+        Duration.zero,
+        () => {
+              setState(() {
+                sizedBoxHeight = dynamicHeight(0.28);
+              })
+            });
+  }
+
+  void inputFocusChange() {
+    if (inputFocusEmail || inputFocusPassword)
+      setState(() {
+        sizedBoxHeight = 0;
+      });
+    else
+      setState(() {
+        sizedBoxHeight = dynamicHeight(0.28);
+      });
+  }
 
   void inputFocusChangeEmail(bool hasFocus) {
     setState(() {
       inputFocusEmail = hasFocus;
     });
+    inputFocusChange();
   }
 
   void inputFocusChangePassword(bool hasFocus) {
     setState(() {
       inputFocusPassword = hasFocus;
     });
+    inputFocusChange();
   }
 
   Widget loginViewContainer(Widget child) {
@@ -149,11 +176,10 @@ class _LoginViewState extends BaseState<LoginView> {
                     text: "It's modular and designed to last",
                     color: white,
                   ),
-                  inputFocusEmail || inputFocusPassword
-                      ? Container()
-                      : SizedBox(
-                          height: dynamicHeight(0.28),
-                        ),
+                  AnimatedContainer(
+                    duration: Duration(milliseconds: 500),
+                    height: sizedBoxHeight,
+                  ),
                   loginForm(),
                 ],
               ),

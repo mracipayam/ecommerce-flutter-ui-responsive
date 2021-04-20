@@ -21,17 +21,43 @@ class RegisterView extends StatefulWidget {
 class _RegisterViewState extends BaseState<RegisterView> {
   bool inputFocusEmail = false;
   bool inputFocusPassword = false;
+  double sizedBoxHeight = 50;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(
+        Duration.zero,
+        () => {
+              setState(() {
+                sizedBoxHeight = dynamicHeight(0.21);
+              })
+            });
+  }
+
+  void inputFocusChange() {
+    if (inputFocusEmail || inputFocusPassword)
+      setState(() {
+        sizedBoxHeight = 0;
+      });
+    else
+      setState(() {
+        sizedBoxHeight = dynamicHeight(0.21);
+      });
+  }
 
   void inputFocusChangeEmail(bool hasFocus) {
     setState(() {
       inputFocusEmail = hasFocus;
     });
+    inputFocusChange();
   }
 
   void inputFocusChangePassword(bool hasFocus) {
     setState(() {
       inputFocusPassword = hasFocus;
     });
+    inputFocusChange();
   }
 
   Widget registerViewContainer(Widget child) {
@@ -168,11 +194,10 @@ class _RegisterViewState extends BaseState<RegisterView> {
                     text: "It's modular and designed to last",
                     color: white,
                   ),
-                  inputFocusEmail || inputFocusPassword
-                      ? Container()
-                      : SizedBox(
-                          height: dynamicHeight(0.21),
-                        ),
+                  AnimatedContainer(
+                    duration: Duration(milliseconds: 500),
+                    height: sizedBoxHeight,
+                  ),
                   registerForm(),
                 ],
               ),

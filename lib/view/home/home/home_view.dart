@@ -347,6 +347,10 @@ class _HomeViewState extends BaseState<HomeView> {
           height: dynamicHeight(0.038),
         ),
         SearchInput(
+          onTap: () {
+            FocusScope.of(context).requestFocus(new FocusNode());
+            NavigationService.instance.navigateToPage(path: "/search");
+          },
           placeholder: "Search headphone",
         ),
         SizedBox(

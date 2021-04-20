@@ -1,14 +1,19 @@
 import 'package:ecommerceflutterapp/core/base/state/base_state.dart';
+import 'package:ecommerceflutterapp/core/base/widgets/base_widget.dart';
 import 'package:ecommerceflutterapp/core/components/appbars/appbar_back_cart.dart';
 import 'package:ecommerceflutterapp/core/components/buttons/button_filter.dart';
 import 'package:ecommerceflutterapp/core/components/buttons/button_large.dart';
 import 'package:ecommerceflutterapp/core/components/buttons/chips_button_small.dart';
+import 'package:ecommerceflutterapp/core/components/card/card_small.dart';
+import 'package:ecommerceflutterapp/core/components/card/gray_card.dart';
 import 'package:ecommerceflutterapp/core/components/focus/refresh_focus.dart';
 import 'package:ecommerceflutterapp/core/components/lists/products_horizontal_list.dart';
+import 'package:ecommerceflutterapp/core/components/rating/star_rating_filled.dart';
 import 'package:ecommerceflutterapp/core/components/textfields/double_input.dart';
 import 'package:ecommerceflutterapp/core/components/texts/text_large.dart';
 import 'package:ecommerceflutterapp/core/components/texts/text_medium.dart';
 import 'package:ecommerceflutterapp/core/components/texts/text_small.dart';
+import 'package:ecommerceflutterapp/core/components/texts/text_x_small.dart';
 import 'package:ecommerceflutterapp/core/constants/app/app_constants.dart';
 import 'package:ecommerceflutterapp/core/constants/component/button_constants.dart';
 import 'package:ecommerceflutterapp/core/init/theme/colors.dart';
@@ -242,20 +247,105 @@ class _ExploreProductsViewState extends BaseState<ExploreProductsView> {
 
   //FILTER MODAL END
 
+  //BOTTOM GRAY CARD BEGIN
+
+  Widget grayCardItem() {
+    return CardSmall(
+        child: Container(
+            padding: EdgeInsets.all(dynamicWidth(0.0384)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Image.asset(
+                    ApplicationConstants.IMAGES_PATH + "tma-2.webp",
+                    width: dynamicWidth(0.320),
+                  ),
+                ),
+                SizedBox(
+                  height: dynamicHeight(0.0263),
+                ),
+                TextMedium(
+                  text: "TMA-2 HD Wireless",
+                ),
+                TextSmall(
+                  text: "USD 350",
+                  weight: FontWeight.bold,
+                ),
+                SizedBox(
+                  height: dynamicHeight(0.0131),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        StarFilledRating(),
+                        TextXSmall(text: "4.6"),
+                        SizedBox(
+                          width: dynamicWidth(0.0256),
+                        ),
+                        TextXSmall(text: "86 Reviews"),
+                      ],
+                    ),
+                    SvgPicture.asset(
+                      ApplicationConstants.SVG_PATH + "more-vertical.svg",
+                      width: dynamicWidth(0.0512),
+                    )
+                  ],
+                ),
+              ],
+            )));
+  }
+
+  Widget grayCardContainer() {
+    return GrayCard(
+        child: Container(
+      padding: EdgeInsets.symmetric(horizontal: dynamicWidth(0.045)),
+      alignment: Alignment.topLeft,
+      child: Column(
+        children: [
+          SizedBox(
+            height: dynamicHeight(0.0315),
+          ),
+          Wrap(
+            spacing: dynamicWidth(0.05),
+            runSpacing: dynamicWidth(0.05),
+            children: [
+              for (var index = 0; index <= 8; index++) grayCardItem(),
+            ],
+          ),
+          SizedBox(
+            height: dynamicHeight(0.0315),
+          ),
+        ],
+      ),
+    ));
+  }
+
+  //BOTTOM GRAY CARD END
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
       appBar: AppBarBackCart(),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          headerTextContainer(),
-          SizedBox(
-            height: dynamicHeight(0.0263),
-          ),
-          listHorizontal()
-        ],
+      body: BaseView(
+        scrollPhysics: ClampingScrollPhysics(),
+        onPageBuilder: (context) => Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            headerTextContainer(),
+            SizedBox(
+              height: dynamicHeight(0.0263),
+            ),
+            listHorizontal(),
+            SizedBox(
+              height: dynamicHeight(0.0460),
+            ),
+            grayCardContainer()
+          ],
+        ),
       ),
     );
   }

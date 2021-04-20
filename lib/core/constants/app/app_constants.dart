@@ -8,6 +8,7 @@ class ApplicationConstants {
   static const TEXT_HEADER_SL = 0.056; //22px
   static const TEXT_HEADER_M = 0.041; // 16px
   static const TEXT_HEADER_S = 0.0359; //14px
+  static const TEXT_HEADER_XS = 0.0256; //10px
   static const AVATAR_SMALL = 0.089;
   static const AVATAR_LARGE = 0.192;
 }

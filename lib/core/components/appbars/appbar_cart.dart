@@ -1,4 +1,4 @@
-import 'package:ecommerceflutterapp/core/init/navigation/navigation_service.dart';
+import 'package:ecommerceflutterapp/core/components/texts/text_medium.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -7,13 +7,13 @@ import '../../base/state/base_state.dart';
 import '../../constants/app/app_constants.dart';
 import '../../init/theme/colors.dart';
 
-class AppBarBackCart extends StatefulWidget implements PreferredSizeWidget {
+class AppBarCart extends StatefulWidget implements PreferredSizeWidget {
   Size get preferredSize => Size.fromHeight(50);
   @override
-  _AppBarBackCartState createState() => _AppBarBackCartState();
+  _AppBarCartState createState() => _AppBarCartState();
 }
 
-class _AppBarBackCartState extends BaseState<AppBarBackCart> {
+class _AppBarCartState extends BaseState<AppBarCart> {
   Widget leadingButton() {
     return GestureDetector(
       onTap: () {
@@ -30,9 +30,7 @@ class _AppBarBackCartState extends BaseState<AppBarBackCart> {
 
   Widget actionButton() {
     return GestureDetector(
-      onTap: () {
-        NavigationService.instance.navigateToPage(path: "/cart");
-      },
+      onTap: () {},
       child: Padding(
         padding: EdgeInsets.all(dynamicWidth(0.032)),
         child: SvgPicture.asset(
@@ -51,7 +49,11 @@ class _AppBarBackCartState extends BaseState<AppBarBackCart> {
       centerTitle: true,
       leading: leadingButton(),
       actions: [actionButton()],
-      title: Container(),
+      title: TextMedium(
+        text: "Shopping Cart",
+        weight: FontWeight.bold,
+        color: black,
+      ),
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarIconBrightness: Brightness.dark,
       ),

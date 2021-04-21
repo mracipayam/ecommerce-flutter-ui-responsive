@@ -8,4 +8,6 @@ class CardConstants {
   static const LARGE_CARD_BORDER_RADIUS = 0.0256;
   static const LARGE_CARD_FIT_WIDTH = 0.44;
   static const LARGE_CARD_FIT_HEIGHT = 0.52;
+  static const CARD_COMMENT_PHOTO_WIDTH = 0.164;
+  static const CARD_COMMENT_PHOTO_HEIGHT = 0.164;
 }

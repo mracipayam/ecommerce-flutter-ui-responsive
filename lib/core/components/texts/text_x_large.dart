@@ -4,36 +4,31 @@ import 'package:flutter/material.dart';
 import '../../base/state/base_state.dart';
 import '../../constants/app/app_constants.dart';
 
-class TextCustom extends StatefulWidget {
+class TextXLarge extends StatefulWidget {
   final String text;
   final Color? color;
   final FontWeight? weight;
   final TextStyle? style;
-  final TextOverflow? overflow;
-  final double size;
 
-  const TextCustom(
+  const TextXLarge(
       {Key? key,
       required this.text,
       this.color,
       this.style,
-      this.overflow,
-      this.weight = FontWeight.w400,
-      this.size = ApplicationConstants.TEXT_HEADER_S})
+      this.weight = FontWeight.w400})
       : super(key: key);
   @override
-  _TextCustomState createState() => _TextCustomState();
+  _TextXLargeState createState() => _TextXLargeState();
 }
 
-class _TextCustomState extends BaseState<TextCustom> {
+class _TextXLargeState extends BaseState<TextXLarge> {
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return AutoSizeText(
       widget.text,
-      overflow: widget.overflow,
       style: widget.style == null
           ? TextStyle(
-              fontSize: dynamicWidth(widget.size),
+              fontSize: dynamicWidth(ApplicationConstants.TEXT_HEADER_XL),
               color: widget.color,
               fontWeight: widget.weight)
           : widget.style,

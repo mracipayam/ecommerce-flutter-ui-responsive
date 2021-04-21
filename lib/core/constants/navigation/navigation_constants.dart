@@ -4,4 +4,5 @@ class NavigationConstants {
   static const HOME_VIEW = '/home';
   static const SEARCH_VIEW = '/search';
   static const EXPLORE_PRODUCTS_VIEW = '/explore-products';
+  static const PRODUCT_DETAILS_VIEW = '/product-details';
 }

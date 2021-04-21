@@ -4,6 +4,7 @@ class ApplicationConstants {
   static const IMAGES_PATH = "assets/images/";
   static const LOGOS_PATH = "assets/logos/";
   static const AVATARS_PATH = "assets/avatars/";
+  static const TEXT_HEADER_XL = 0.0717; //28px
   static const TEXT_HEADER_L = 0.0615; //24px
   static const TEXT_HEADER_SL = 0.056; //22px
   static const TEXT_HEADER_M = 0.041; // 16px

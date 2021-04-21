@@ -30,7 +30,9 @@ class _LoginViewState extends BaseState<LoginView> {
         () => {
               setState(() {
                 sizedBoxHeight = dynamicHeight(0.28);
-              })
+              }),
+              SystemChrome.setSystemUIOverlayStyle(
+                  SystemUiOverlayStyle(statusBarColor: Colors.white)),
             });
   }
 
@@ -176,7 +178,7 @@ class _LoginViewState extends BaseState<LoginView> {
                     color: white,
                   ),
                   AnimatedContainer(
-                    duration: Duration(milliseconds: 500),
+                    duration: Duration(milliseconds: 100),
                     height: sizedBoxHeight,
                   ),
                   loginForm(),

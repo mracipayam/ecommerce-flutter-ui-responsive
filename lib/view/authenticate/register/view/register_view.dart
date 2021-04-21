@@ -31,7 +31,9 @@ class _RegisterViewState extends BaseState<RegisterView> {
         () => {
               setState(() {
                 sizedBoxHeight = dynamicHeight(0.21);
-              })
+              }),
+              SystemChrome.setSystemUIOverlayStyle(
+                  SystemUiOverlayStyle(statusBarColor: Colors.white))
             });
   }
 
@@ -195,7 +197,7 @@ class _RegisterViewState extends BaseState<RegisterView> {
                     color: white,
                   ),
                   AnimatedContainer(
-                    duration: Duration(milliseconds: 500),
+                    duration: Duration(milliseconds: 100),
                     height: sizedBoxHeight,
                   ),
                   registerForm(),

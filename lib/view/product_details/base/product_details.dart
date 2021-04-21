@@ -108,13 +108,10 @@ class _ProductDetailsState extends BaseState<ProductDetails>
   }
 
   Widget tabbarView() {
-    return SizedBox(
-      height: 500,
-      child: TabBarView(
-        physics: NeverScrollableScrollPhysics(),
-        controller: _tabController,
-        children: [ProductOverviewView(), Container(), Container()],
-      ),
+    return TabBarView(
+      physics: NeverScrollableScrollPhysics(),
+      controller: _tabController,
+      children: [ProductOverviewView(), Container(), Container()],
     );
   }
 
@@ -125,25 +122,32 @@ class _ProductDetailsState extends BaseState<ProductDetails>
     return Scaffold(
       backgroundColor: white,
       appBar: AppBarBackCart(),
-      body: BaseView(
-        onPageBuilder: (context) {
-          return Container(
-            alignment: Alignment.topLeft,
-            child: Column(
-              children: [
-                SizedBox(
-                  height: dynamicHeight(0.0236),
+      body: NestedScrollView(
+        physics: BouncingScrollPhysics(),
+        headerSliverBuilder: (context, boolean) {
+          return [
+            SliverToBoxAdapter(
+              child: Container(
+                alignment: Alignment.topLeft,
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: dynamicHeight(0.0236),
+                    ),
+                    headerTextContainer(),
+                    SizedBox(
+                      height: dynamicHeight(0.0384),
+                    ),
+                    tabbarContainer(),
+                  ],
                 ),
-                headerTextContainer(),
-                SizedBox(
-                  height: dynamicHeight(0.0384),
-                ),
-                tabbarContainer(),
-                tabbarView()
-              ],
-            ),
-          );
+              ),
+            )
+          ];
         },
+        body: Container(
+          child: tabbarView(),
+        ),
       ),
     );
   }

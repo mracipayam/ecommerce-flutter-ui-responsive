@@ -1,3 +1,4 @@
+import 'package:ecommerceflutterapp/view/cart/shopping_cart.dart';
 import 'package:ecommerceflutterapp/view/product_details/base/product_details.dart';
 
 import '../../../view/authenticate/register/view/register_view.dart';
@@ -31,6 +32,8 @@ class NavigationRoute {
         return normalNavigate(ExploreProductsView());
       case NavigationConstants.PRODUCT_DETAILS_VIEW:
         return normalNavigate(ProductDetails());
+      case NavigationConstants.CART_VIEW:
+        return normalNavigate(ShoppingCartView());
       default:
         return MaterialPageRoute(
           builder: (context) => NotFound(),

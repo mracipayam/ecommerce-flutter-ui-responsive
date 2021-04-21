@@ -33,6 +33,10 @@ class _HomeViewState extends BaseState<HomeView> {
     NavigationService.instance.navigateToPage(path: "/explore-products");
   }
 
+  void routeAtProductDetailsView() {
+    NavigationService.instance.navigateToPage(path: "/product-details");
+  }
+
   Widget headerText() {
     return Container(
       alignment: Alignment.centerLeft,
@@ -194,14 +198,17 @@ class _HomeViewState extends BaseState<HomeView> {
   ) {
     return Row(
       children: [
-        CardFitLarge(
-            child: Column(
-          children: [
-            productFitCardImage(imageName),
-            productFitCardName(cardName),
-            productFitCardPrice(price),
-          ],
-        ))
+        GestureDetector(
+          onTap: routeAtProductDetailsView,
+          child: CardFitLarge(
+              child: Column(
+            children: [
+              productFitCardImage(imageName),
+              productFitCardName(cardName),
+              productFitCardPrice(price),
+            ],
+          )),
+        )
       ],
     );
   }

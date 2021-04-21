@@ -1,3 +1,4 @@
+import 'package:ecommerceflutterapp/core/init/navigation/navigation_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -25,6 +26,10 @@ class _SearchViewState extends BaseState<SearchView> {
         placeholder: "Search headphone",
       ),
     );
+  }
+
+  void routeAtProductDetailsView() {
+    NavigationService.instance.navigateToPage(path: "/product-details");
   }
 
   //LASTEST SEARCH BEGIN
@@ -117,68 +122,71 @@ class _SearchViewState extends BaseState<SearchView> {
   }
 
   Widget popularProductListItem() {
-    return Row(
-      children: [
-        Row(
-          children: [
-            Container(
-              width: dynamicWidth(0.21),
-              height: dynamicWidth(0.21),
-              decoration: BoxDecoration(
-                  color: lightGrey,
-                  borderRadius:
-                      BorderRadius.all(Radius.circular(dynamicWidth(0.0256)))),
-              child: Image.asset(
-                ApplicationConstants.IMAGES_PATH + "tma-2.webp",
-                width: dynamicWidth(0.141),
+    return GestureDetector(
+      onTap: routeAtProductDetailsView,
+      child: Row(
+        children: [
+          Row(
+            children: [
+              Container(
+                width: dynamicWidth(0.21),
+                height: dynamicWidth(0.21),
+                decoration: BoxDecoration(
+                    color: lightGrey,
+                    borderRadius: BorderRadius.all(
+                        Radius.circular(dynamicWidth(0.0256)))),
+                child: Image.asset(
+                  ApplicationConstants.IMAGES_PATH + "tma-2.webp",
+                  width: dynamicWidth(0.141),
+                ),
               ),
-            ),
-            SizedBox(
-              width: dynamicWidth(0.0384),
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                TextMedium(
-                  text: "TMA-2 Comfort Wireless ",
-                ),
-                SizedBox(
-                  height: dynamicHeight(0.005),
-                ),
-                TextMedium(
-                  text: "USD 270",
-                  weight: FontWeight.bold,
-                ),
-                SizedBox(
-                  height: dynamicHeight(0.012),
-                ),
-                Container(
-                  width: dynamicWidth(0.602),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          StarFilledRating(),
-                          TextSmall(text: "4.6"),
-                          SizedBox(
-                            width: dynamicWidth(0.0256),
-                          ),
-                          TextSmall(text: "86 Reviews"),
-                        ],
-                      ),
-                      SvgPicture.asset(
-                        ApplicationConstants.SVG_PATH + "more-vertical.svg",
-                        width: dynamicWidth(0.0512),
-                      )
-                    ],
+              SizedBox(
+                width: dynamicWidth(0.0384),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TextMedium(
+                    text: "TMA-2 Comfort Wireless ",
                   ),
-                )
-              ],
-            )
-          ],
-        )
-      ],
+                  SizedBox(
+                    height: dynamicHeight(0.005),
+                  ),
+                  TextMedium(
+                    text: "USD 270",
+                    weight: FontWeight.bold,
+                  ),
+                  SizedBox(
+                    height: dynamicHeight(0.012),
+                  ),
+                  Container(
+                    width: dynamicWidth(0.602),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            StarFilledRating(),
+                            TextSmall(text: "4.6"),
+                            SizedBox(
+                              width: dynamicWidth(0.0256),
+                            ),
+                            TextSmall(text: "86 Reviews"),
+                          ],
+                        ),
+                        SvgPicture.asset(
+                          ApplicationConstants.SVG_PATH + "more-vertical.svg",
+                          width: dynamicWidth(0.0512),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              )
+            ],
+          )
+        ],
+      ),
     );
   }
 

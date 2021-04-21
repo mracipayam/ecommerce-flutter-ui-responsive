@@ -1,3 +1,4 @@
+import 'package:ecommerceflutterapp/core/init/navigation/navigation_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -28,6 +29,11 @@ class ExploreProductsView extends StatefulWidget {
 class _ExploreProductsViewState extends BaseState<ExploreProductsView> {
   List<Widget> listWidgets = [];
   int selectedFilterChipsIndex = 0;
+
+  void routeAtProductDetailsView() {
+    NavigationService.instance.navigateToPage(path: "/product-details");
+  }
+
   //HEADER TEXTS BEGIN
   Widget productTypeText() {
     return TextMedium(text: "Headphone");
@@ -250,52 +256,55 @@ class _ExploreProductsViewState extends BaseState<ExploreProductsView> {
   //BOTTOM GRAY CARD BEGIN
 
   Widget grayCardItem() {
-    return CardSmall(
-        child: Container(
-            padding: EdgeInsets.all(dynamicWidth(0.0384)),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: Image.asset(
-                    ApplicationConstants.IMAGES_PATH + "tma-2.webp",
-                    width: dynamicWidth(0.320),
-                  ),
-                ),
-                SizedBox(
-                  height: dynamicHeight(0.0263),
-                ),
-                TextMedium(
-                  text: "TMA-2 HD Wireless",
-                ),
-                TextSmall(
-                  text: "USD 350",
-                  weight: FontWeight.bold,
-                ),
-                SizedBox(
-                  height: dynamicHeight(0.0131),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        StarFilledRating(),
-                        TextXSmall(text: "4.6"),
-                        SizedBox(
-                          width: dynamicWidth(0.0256),
-                        ),
-                        TextXSmall(text: "86 Reviews"),
-                      ],
+    return GestureDetector(
+      onTap: routeAtProductDetailsView,
+      child: CardSmall(
+          child: Container(
+              padding: EdgeInsets.all(dynamicWidth(0.0384)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: Image.asset(
+                      ApplicationConstants.IMAGES_PATH + "tma-2.webp",
+                      width: dynamicWidth(0.320),
                     ),
-                    SvgPicture.asset(
-                      ApplicationConstants.SVG_PATH + "more-vertical.svg",
-                      width: dynamicWidth(0.0512),
-                    )
-                  ],
-                ),
-              ],
-            )));
+                  ),
+                  SizedBox(
+                    height: dynamicHeight(0.0263),
+                  ),
+                  TextMedium(
+                    text: "TMA-2 HD Wireless",
+                  ),
+                  TextSmall(
+                    text: "USD 350",
+                    weight: FontWeight.bold,
+                  ),
+                  SizedBox(
+                    height: dynamicHeight(0.0131),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          StarFilledRating(),
+                          TextXSmall(text: "4.6"),
+                          SizedBox(
+                            width: dynamicWidth(0.0256),
+                          ),
+                          TextXSmall(text: "86 Reviews"),
+                        ],
+                      ),
+                      SvgPicture.asset(
+                        ApplicationConstants.SVG_PATH + "more-vertical.svg",
+                        width: dynamicWidth(0.0512),
+                      )
+                    ],
+                  ),
+                ],
+              ))),
+    );
   }
 
   Widget grayCardContainer() {

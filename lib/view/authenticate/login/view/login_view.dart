@@ -178,7 +178,7 @@ class _LoginViewState extends BaseState<LoginView> {
                     color: white,
                   ),
                   AnimatedContainer(
-                    duration: Duration(milliseconds: 100),
+                    duration: Duration(milliseconds: 35),
                     height: sizedBoxHeight,
                   ),
                   loginForm(),

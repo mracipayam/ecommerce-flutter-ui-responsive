@@ -50,6 +50,7 @@ flutter:
     - assets/svg/icons/menu-variant.svg
     - assets/svg/icons/arrow-right.svg
     - assets/svg/icons/chevron-left.svg
+    - assets/svg/icons/chevron-right.svg
     - assets/svg/icons/shopping-cart.svg
     - assets/svg/icons/clock.svg
     - assets/svg/icons/x.svg
@@ -57,6 +58,9 @@ flutter:
     - assets/svg/icons/star-filled.svg
     - assets/svg/icons/more-vertical.svg
     - assets/svg/icons/sliders.svg
+    - assets/svg/icons/minus.svg
+    - assets/svg/icons/plus.svg
+    - assets/svg/icons/trash-2.svg
     - assets/images/
     - assets/logos/
     - assets/avatars/

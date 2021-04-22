@@ -4,7 +4,7 @@ import 'package:flutter/rendering.dart';
 
 import '../../../core/base/state/base_state.dart';
 import '../../../core/base/widgets/base_widget.dart';
-import '../../../core/components/appbars/appbar_transparent.dart';
+import '../../../core/components/appbars/appbar_base.dart';
 import '../../../core/components/buttons/button_text.dart';
 import '../../../core/components/card/card_fit_large.dart';
 import '../../../core/components/card/card_large.dart';

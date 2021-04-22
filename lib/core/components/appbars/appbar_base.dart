@@ -1,3 +1,5 @@
+import 'package:ecommerceflutterapp/core/init/navigation/navigation_service.dart';
+
 import '../../constants/app/app_constants.dart';
 import '../../init/theme/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -27,7 +29,9 @@ class _AppBarBaseState extends BaseState<AppBarBase> {
 
   Widget actionButton() {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        NavigationService.instance.navigateToPage(path: "/profile");
+      },
       child: Padding(
         padding: EdgeInsets.only(right: dynamicWidth(0.02)),
         child: CircleAvatar(
